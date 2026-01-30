@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ONLINE VOTING SYSTEM</title>
+
+    <style>
+        body {
+            background-color: #e6f2ff;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            color: #003366;
+            margin-top: 30px;
+        }
+
+        form {
+            background-color: white;
+            width: 420px;
+            margin: 40px auto;   /* brings box down */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        h2 {
+            text-align: center;
+            color: #003366;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 95%;
+            padding: 5px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            padding: 8px 15px;
+            margin-top: 10px;
+        }
+
+        p {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>ONLINE VOTING SYSTEM</h1>
+
+<form>
+    <h2>Voter Details</h2>
+
+    <label>Voter Name:</label><br>
+    <input type="text" name="votername"><br><br>
+
+    <label>Voter ID:</label><br>
+    <input type="text" name="voterid"><br><br>
+
+    <label>Age:</label><br>
+    <input type="number" name="age"><br><br>
+
+    <label>Gender:</label><br>
+    <input type="radio" name="gender" value="Male"> Male<br>
+    <input type="radio" name="gender" value="Female"> Female<br>
+    <input type="radio" name="gender" value="Other"> Other<br><br>
+
+    <h2>Select Your Candidate</h2>
+
+    <input type="radio" name="vote" value="Akash"> Akash<br>
+    <input type="radio" name="vote" value="Basker"> Basker<br>
+    <input type="radio" name="vote" value="Carry"> Carry<br><br>
+
+    <input type="submit" value="Submit Vote">
+    <input type="reset" value="Clear">
+</form>
+
+<hr>
+
+<p>© 2026 Online Voting System</p>
+
+<p>
+    For more information visit our webpage:
+    <a href="https://onlinevoting.in">Click here</a>
+</p>
+
+</body>
+</html>
