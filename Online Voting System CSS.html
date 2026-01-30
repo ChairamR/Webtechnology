@@ -9,36 +9,56 @@
             font-family: Arial, sans-serif;
         }
 
+        /* Top Image */
+        .logo {
+            display: block;
+            margin: 25px auto 10px auto;
+            width: 120px;
+        }
+
+        /* Main Heading */
         h1 {
             text-align: center;
             color: #003366;
-            margin-top: 30px;
+            margin-bottom: 20px;
         }
 
+        /* Voting Box */
         form {
-            background-color: white;
-            width: 420px;
-            margin: 40px auto;   /* brings box down */
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px gray;
+            background-color: #ffffff;
+            width: 430px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 12px gray;
         }
 
         h2 {
             text-align: center;
-            color: #003366;
+            color: #004080;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
         }
 
         input[type="text"],
         input[type="number"] {
             width: 95%;
-            padding: 5px;
+            padding: 6px;
+            margin-top: 5px;
         }
 
         input[type="submit"],
         input[type="reset"] {
-            padding: 8px 15px;
-            margin-top: 10px;
+            padding: 8px 18px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .buttons {
+            text-align: center;
         }
 
         p {
@@ -48,6 +68,10 @@
 </head>
 
 <body>
+
+<!-- Voting Image -->
+<img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png"
+     alt="Online Voting" class="logo">
 
 <h1>ONLINE VOTING SYSTEM</h1>
 
@@ -64,9 +88,10 @@
     <input type="number" name="age"><br><br>
 
     <label>Gender:</label><br>
-    <input type="radio" name="gender" value="Male"> Male<br>
-    <input type="radio" name="gender" value="Female"> Female<br>
-    <input type="radio" name="gender" value="Other"> Other<br><br>
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female"> Female
+    <input type="radio" name="gender" value="Other"> Other
+    <br><br>
 
     <h2>Select Your Candidate</h2>
 
@@ -74,8 +99,10 @@
     <input type="radio" name="vote" value="Basker"> Basker<br>
     <input type="radio" name="vote" value="Carry"> Carry<br><br>
 
-    <input type="submit" value="Submit Vote">
-    <input type="reset" value="Clear">
+    <div class="buttons">
+        <input type="submit" value="Submit Vote">
+        <input type="reset" value="Clear">
+    </div>
 </form>
 
 <hr>
@@ -83,8 +110,8 @@
 <p>© 2026 Online Voting System</p>
 
 <p>
-    For more information visit our webpage:
-    <a href="https://onlinevoting.in">Click here</a>
+    For more information visit:
+    <a href="https://onlinevoting.in">onlinevoting.in</a>
 </p>
 
 </body>
