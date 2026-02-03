@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login | Online Voting System</title>
+
+    <style>
+        body {
+            margin: 0;
+            background-color:  #f5faff;
+            font-family: Arial, sans-serif;
+        }
+
+        marquee {
+            background-color: #003366;
+            color: white;
+            padding: 12px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .main {
+            width: 100%;
+            height: calc(100vh - 50px);
+        }
+
+        .left {
+            width: 50%;
+            height: 100%;
+            float: left;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                        url("https://images.unsplash.com/photo-1609873539020-84cf9d1c7f97") center/cover no-repeat;
+	    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Election_Commission_of_India_Logo.svg"
+     alt="Election Commission of India Logo"
+     width="120">
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .right {
+            width: 50%;
+            height: 100%;
+            float: right;
+            background-color:  #f5faff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-box {
+            width: 70%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #003366;
+            margin-bottom: 25px;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            margin-top: 8px;
+        }
+
+        .buttons {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        function validateLogin() {
+            var u = document.loginForm.username.value;
+            var p = document.loginForm.password.value;
+
+            if (u == "") {
+                alert("Please enter username");
+                return false;
+            }
+            if (p == "") {
+                alert("Please enter password");
+                return false;
+            }
+            alert("Login successful!");
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+
+<marquee>Welcome to Online Voting System | Secure & Transparent </marquee>
+
+<div class="main">
+
+    <div class="left">
+        Cast Your Vote Securely
+    </div>
+
+    <div class="right">
+        <div class="login-box">
+            <h1>ONLINE VOTING SYSTEM</h1>
+
+            <form name="loginForm" onsubmit="return validateLogin()">
+                <label>Username</label>
+                <input type="text" name="username">
+
+                <label>Password</label>
+                <input type="password" name="password">
+
+                <div class="buttons">
+                    <input type="submit" value="Login">
+                    <input type="reset" value="Clear">
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<p align=center>© 2026 Online Voting System. All Rights Reserved.</p>
+
+</body>
+</html>
