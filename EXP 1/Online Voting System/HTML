@@ -15,13 +15,11 @@
       min-height: 100vh;
     }
 
-    /* ── pages ── */
+    
     .page { display: none; }
     .page.active { display: block; }
 
-    /* ══════════════════════════════
-       TOP BANNER + HEADER
-    ══════════════════════════════ */
+
     .top-banner {
       background: #1a1a18; color: #f8f7f4;
       text-align: center; font-size: .7rem;
@@ -66,9 +64,6 @@
       font-size: .65rem; font-weight: 500;
     }
 
-    /* ══════════════════════════════
-       LOGIN PAGE
-    ══════════════════════════════ */
     .login-wrap {
       min-height: calc(100vh - 100px);
       display: flex; align-items: center; justify-content: center;
@@ -143,9 +138,7 @@
 
     .demo-hint strong { color: #5a5748; }
 
-    /* ══════════════════════════════
-       PROFILE PAGE
-    ══════════════════════════════ */
+   
     .profile-wrap { max-width: 740px; margin: 0 auto; padding: 56px 24px 80px; }
 
     .profile-header {
@@ -211,9 +204,7 @@
     }
     .btn-outline:hover { border-color: #1a1a18; }
 
-    /* ══════════════════════════════
-       BALLOT PAGE
-    ══════════════════════════════ */
+   
     .ballot-wrap { max-width: 740px; margin: 0 auto; padding: 56px 24px 80px; }
 
     .page-title {
@@ -351,9 +342,7 @@
       font-size: .73rem; color: #b0a898; line-height: 1.7; text-align: center;
     }
 
-    /* ══════════════════════════════
-       THANK YOU PAGE
-    ══════════════════════════════ */
+  
     .done-wrap {
       min-height: calc(100vh - 100px);
       display: flex; align-items: center; justify-content: center;
@@ -594,25 +583,25 @@
 <footer>ElectVote &mdash; Secure Digital Balloting &copy; 2025</footer>
 
 <script>
-  /* ── voter accounts ── */
+
   const VOTERS = {
     VOTER1: { pin: '1234', name: 'Voter 1', initials: 'V1', district: 'District 4', dob: '01 Jan 1985', id: 'VOTER1' },
     VOTER2: { pin: '5678', name: 'Voter 2', initials: 'V2', district: 'District 7', dob: '14 Mar 1990', id: 'VOTER2' }
   };
 
-  /* ── shared poll state (persists across logins) ── */
+
   const polls = {
     race1: { a:0, b:0, opts:['a','b'] },
     race2: { a:0, b:0, opts:['a','b'] },
     race3: { a:0, b:0, opts:['a','b'] }
   };
 
-  /* ── per-voter vote records ── */
+  
   const voterRecord = { VOTER1: {}, VOTER2: {} };
 
   let currentUser = null;
 
-  /* ═══ NAVIGATION ═══ */
+ 
   function showPage(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById('page-' + id).classList.add('active');
@@ -621,7 +610,7 @@
   function goProfile() { if (currentUser) showPage('profile'); }
   function goBallot()  { showPage('ballot'); renderBallotForUser(); }
 
-  /* ═══ LOGIN ═══ */
+
   function doLogin() {
     const id  = document.getElementById('voterIdInput').value.trim().toUpperCase();
     const pin = document.getElementById('voterPinInput').value.trim();
@@ -643,7 +632,7 @@
     renderProfile();
   }
 
-  /* ═══ LOGOUT ═══ */
+  
   function doLogout() {
     currentUser = null;
     document.getElementById('userChip').classList.remove('show');
@@ -652,7 +641,7 @@
     showPage('login');
   }
 
-  /* ═══ PROFILE ═══ */
+  
   function renderProfile() {
     const v   = VOTERS[currentUser];
     const rec = voterRecord[currentUser];
@@ -673,7 +662,7 @@
       cnt === 3 ? '#1e8040' : cnt > 0 ? '#b86a10' : '#b84040';
   }
 
-  /* ═══ BALLOT RENDER ═══ */
+ 
   function renderBallotForUser() {
     const rec = voterRecord[currentUser];
     let completedCount = Object.keys(rec).length;
@@ -720,7 +709,7 @@
     refreshTotalVotes();
   }
 
-  /* ═══ RADIO CHANGE ═══ */
+ 
   document.querySelectorAll('input[type="radio"]').forEach(r => {
     r.addEventListener('change', function() {
       const rid = this.name, val = this.value;
@@ -733,7 +722,7 @@
     });
   });
 
-  /* ═══ CAST VOTE ═══ */
+ 
   function castVote(rid, n) {
     const rec = voterRecord[currentUser];
     if (rec[rid]) return;
@@ -784,7 +773,7 @@
     document.getElementById('totalVotes').textContent = t;
   }
 
-  /* allow enter key on login */
+ 
   document.getElementById('voterPinInput').addEventListener('keydown', e => { if (e.key==='Enter') doLogin(); });
   document.getElementById('voterIdInput').addEventListener('keydown',  e => { if (e.key==='Enter') doLogin(); });
 </script>
