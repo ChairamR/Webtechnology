@@ -15,119 +15,262 @@
       min-height: 100vh;
     }
 
-    /* ── top banner ── */
+    /* ── pages ── */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ══════════════════════════════
+       TOP BANNER + HEADER
+    ══════════════════════════════ */
     .top-banner {
-      background: #1a1a18;
-      color: #f8f7f4;
-      text-align: center;
-      font-size: .72rem;
-      font-weight: 500;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      padding: 8px 20px;
+      background: #1a1a18; color: #f8f7f4;
+      text-align: center; font-size: .7rem;
+      font-weight: 500; letter-spacing: .1em;
+      text-transform: uppercase; padding: 8px 20px;
     }
 
     header {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 20px 40px;
-      border-bottom: 1px solid #e5e2da;
+      padding: 18px 40px; border-bottom: 1px solid #e5e2da;
       background: #f8f7f4;
     }
 
-    .logo {
-      font-family: 'Instrument Serif', serif;
-      font-size: 1.35rem; color: #1a1a18;
-    }
+    .logo { font-family: 'Instrument Serif', serif; font-size: 1.3rem; }
+
+    .header-right { display: flex; align-items: center; gap: 14px; }
 
     .live-pill {
       display: flex; align-items: center; gap: 6px;
       background: #eeeae0; border-radius: 20px;
-      padding: 5px 14px; font-size: .7rem;
-      font-weight: 500; color: #5a5748;
-      letter-spacing: .07em; text-transform: uppercase;
+      padding: 5px 13px; font-size: .68rem; font-weight: 500;
+      color: #5a5748; letter-spacing: .07em; text-transform: uppercase;
     }
 
     .dot { width: 6px; height: 6px; border-radius: 50%; background: #b84040; animation: blink 1.6s infinite; }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
 
-    main { max-width: 740px; margin: 0 auto; padding: 56px 24px 80px; }
+    .user-chip {
+      display: none; align-items: center; gap: 8px;
+      background: #fff; border: 1px solid #e5e2da;
+      border-radius: 20px; padding: 5px 13px 5px 8px;
+      font-size: .78rem; color: #1a1a18; cursor: pointer;
+      transition: border-color .15s;
+    }
+    .user-chip:hover { border-color: #b0a898; }
+    .user-chip.show { display: flex; }
+
+    .avatar {
+      width: 24px; height: 24px; border-radius: 50%;
+      background: #1a1a18; color: #f8f7f4;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .65rem; font-weight: 500;
+    }
+
+    /* ══════════════════════════════
+       LOGIN PAGE
+    ══════════════════════════════ */
+    .login-wrap {
+      min-height: calc(100vh - 100px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .login-card {
+      background: #fff; border: 1px solid #e5e2da;
+      border-radius: 20px; padding: 44px 40px;
+      width: 100%; max-width: 420px;
+    }
+
+    .login-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: #1a1a18; color: #f8f7f4;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Instrument Serif', serif; font-size: 1.1rem;
+      margin-bottom: 22px;
+    }
+
+    .login-card h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.7rem; font-weight: 400; margin-bottom: 6px;
+    }
+
+    .login-card p { font-size: .85rem; color: #847e70; margin-bottom: 30px; font-weight: 300; }
+
+    .field { margin-bottom: 16px; }
+
+    .field label {
+      display: block; font-size: .72rem; font-weight: 500;
+      text-transform: uppercase; letter-spacing: .08em;
+      color: #5a5748; margin-bottom: 7px;
+    }
+
+    .field input, .field select {
+      width: 100%; padding: 11px 14px;
+      border: 1px solid #e5e2da; border-radius: 9px;
+      background: #f8f7f4; color: #1a1a18;
+      font-family: 'DM Sans', sans-serif; font-size: .9rem;
+      outline: none; transition: border-color .15s;
+      appearance: none;
+    }
+
+    .field input:focus, .field select:focus { border-color: #1a1a18; background: #fff; }
+
+    .field .hint { font-size: .72rem; color: #b0a898; margin-top: 5px; }
+
+    .login-btn {
+      width: 100%; padding: 13px; margin-top: 8px;
+      background: #1a1a18; color: #f8f7f4;
+      border: none; border-radius: 9px;
+      font-family: 'DM Sans', sans-serif; font-size: .9rem; font-weight: 500;
+      cursor: pointer; letter-spacing: .03em;
+      transition: opacity .15s;
+    }
+    .login-btn:hover { opacity: .85; }
+
+    .login-error {
+      background: #fdf0f0; border: 1px solid #f0d0d0;
+      border-radius: 8px; padding: 10px 14px;
+      font-size: .8rem; color: #b84040;
+      margin-bottom: 16px; display: none;
+    }
+    .login-error.show { display: block; }
+
+    .demo-hint {
+      margin-top: 22px; padding-top: 18px;
+      border-top: 1px solid #e5e2da;
+      font-size: .75rem; color: #b0a898; line-height: 1.7;
+    }
+
+    .demo-hint strong { color: #5a5748; }
+
+    /* ══════════════════════════════
+       PROFILE PAGE
+    ══════════════════════════════ */
+    .profile-wrap { max-width: 740px; margin: 0 auto; padding: 56px 24px 80px; }
+
+    .profile-header {
+      display: flex; align-items: center; gap: 20px;
+      background: #fff; border: 1px solid #e5e2da;
+      border-radius: 16px; padding: 28px 30px; margin-bottom: 28px;
+    }
+
+    .profile-avatar {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: #1a1a18; color: #f8f7f4;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Instrument Serif', serif; font-size: 1.5rem; flex-shrink: 0;
+    }
+
+    .profile-info { flex: 1; }
+
+    .profile-name {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.4rem; font-weight: 400; margin-bottom: 4px;
+    }
+
+    .profile-meta { font-size: .8rem; color: #847e70; line-height: 1.7; }
+
+    .profile-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: #eaf4ee; border-radius: 6px;
+      padding: 4px 10px; font-size: .7rem;
+      font-weight: 500; color: #1e8040; letter-spacing: .04em;
+    }
+
+    .profile-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 14px; margin-bottom: 28px;
+    }
+
+    .pcard {
+      background: #fff; border: 1px solid #e5e2da;
+      border-radius: 12px; padding: 18px 20px;
+    }
+
+    .pcard-label { font-size: .68rem; color: #b0a898; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
+    .pcard-val { font-family: 'Instrument Serif', serif; font-size: 1.5rem; color: #1a1a18; }
+    .pcard-sub { font-size: .75rem; color: #847e70; margin-top: 3px; }
+
+    .profile-actions { display: flex; gap: 12px; }
+
+    .btn-primary {
+      flex: 1; padding: 12px;
+      background: #1a1a18; color: #f8f7f4;
+      border: none; border-radius: 9px;
+      font-family: 'DM Sans', sans-serif; font-size: .87rem; font-weight: 500;
+      cursor: pointer; transition: opacity .15s; letter-spacing: .03em;
+    }
+    .btn-primary:hover { opacity: .85; }
+
+    .btn-outline {
+      padding: 12px 22px;
+      background: transparent; color: #1a1a18;
+      border: 1.5px solid #e5e2da; border-radius: 9px;
+      font-family: 'DM Sans', sans-serif; font-size: .87rem; font-weight: 500;
+      cursor: pointer; transition: border-color .15s;
+    }
+    .btn-outline:hover { border-color: #1a1a18; }
+
+    /* ══════════════════════════════
+       BALLOT PAGE
+    ══════════════════════════════ */
+    .ballot-wrap { max-width: 740px; margin: 0 auto; padding: 56px 24px 80px; }
 
     .page-title {
       font-family: 'Instrument Serif', serif;
-      font-size: clamp(2rem, 5vw, 2.9rem);
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
       font-weight: 400; line-height: 1.15;
       letter-spacing: -.03em; margin-bottom: 6px;
     }
 
-    .page-sub { font-size: .9rem; color: #847e70; margin-bottom: 14px; font-weight: 300; }
+    .page-sub { font-size: .88rem; color: #847e70; margin-bottom: 14px; font-weight: 300; }
 
     .election-date {
       display: inline-flex; align-items: center; gap: 8px;
       background: #fff; border: 1px solid #e5e2da;
       border-radius: 8px; padding: 7px 14px;
-      font-size: .78rem; color: #5a5748; margin-bottom: 48px;
+      font-size: .76rem; color: #5a5748; margin-bottom: 44px;
     }
 
-    .cal-icon {
-      width: 14px; height: 14px;
-      border: 1.5px solid #b0a898; border-radius: 3px;
-      display: inline-flex; align-items: center; justify-content: center;
-      font-size: 8px; font-weight: 500; color: #b84040;
-    }
-
-    /* ── stats ── */
-    .stats { display: flex; gap: 14px; margin-bottom: 48px; }
+    .stats { display: flex; gap: 14px; margin-bottom: 44px; }
 
     .stat {
       background: #fff; border: 1px solid #e5e2da;
-      border-radius: 12px; padding: 18px 20px; flex: 1;
+      border-radius: 12px; padding: 17px 20px; flex: 1;
     }
 
-    .stat-n {
-      font-family: 'Instrument Serif', serif;
-      font-size: 1.9rem; color: #1a1a18; line-height: 1;
-    }
+    .stat-n { font-family: 'Instrument Serif', serif; font-size: 1.8rem; color: #1a1a18; line-height: 1; }
+    .stat-l { font-size: .67rem; color: #b0a898; text-transform: uppercase; letter-spacing: .08em; margin-top: 4px; }
 
-    .stat-l { font-size: .68rem; color: #b0a898; text-transform: uppercase; letter-spacing: .08em; margin-top: 4px; }
-
-    /* ── section heading ── */
     .section-head {
       display: flex; align-items: baseline; justify-content: space-between;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
-    .section-title {
-      font-family: 'Instrument Serif', serif;
-      font-size: 1.05rem; color: #1a1a18;
-    }
+    .section-title { font-family: 'Instrument Serif', serif; font-size: 1rem; }
+    .vote-count-label { font-size: .73rem; color: #b0a898; }
 
-    .vote-count-label { font-size: .75rem; color: #b0a898; }
-
-    /* ── poll card ── */
     .poll {
       background: #fff; border: 1px solid #e5e2da;
-      border-radius: 16px; padding: 30px;
+      border-radius: 16px; padding: 28px;
       margin-bottom: 20px;
     }
 
     .poll-tag {
-      font-size: .67rem; font-weight: 500; text-transform: uppercase;
-      letter-spacing: .1em; color: #b84040; margin-bottom: 10px;
-      display: inline-block;
+      font-size: .66rem; font-weight: 500; text-transform: uppercase;
+      letter-spacing: .1em; color: #b84040; margin-bottom: 10px; display: inline-block;
     }
 
     .poll-q {
       font-family: 'Instrument Serif', serif;
-      font-size: 1.2rem; font-weight: 400;
-      line-height: 1.4; margin-bottom: 24px; color: #1a1a18;
+      font-size: 1.15rem; line-height: 1.4; margin-bottom: 22px;
     }
 
-    .options { display: flex; flex-direction: column; gap: 10px; }
+    .options { display: flex; flex-direction: column; gap: 9px; }
 
-    /* ── candidate option ── */
     .option {
       position: relative; cursor: pointer;
-      border: 1px solid #e5e2da; border-radius: 11px;
+      border: 1px solid #e5e2da; border-radius: 10px;
       overflow: hidden; background: #f8f7f4;
       transition: border-color .18s;
     }
@@ -137,80 +280,58 @@
 
     .bar {
       position: absolute; left: 0; top: 0; bottom: 0; width: 0;
-      border-radius: 10px;
-      transition: width .95s cubic-bezier(.4,0,.2,1);
-      pointer-events: none;
+      border-radius: 9px;
+      transition: width .95s cubic-bezier(.4,0,.2,1); pointer-events: none;
     }
 
-    /* party colors — bars */
-    .party-blue .bar  { background: #dce8f7; }
-    .party-red .bar   { background: #f7dcdc; }
-    .party-green .bar { background: #ddf0e2; }
-    .party-amber .bar { background: #faecd6; }
-
-    /* party accent colors */
-    .party-blue  { --pc: #2563b0; --pc-light: #dce8f7; }
-    .party-red   { --pc: #b82525; --pc-light: #f7dcdc; }
-    .party-green { --pc: #1e8040; --pc-light: #ddf0e2; }
-    .party-amber { --pc: #b86a10; --pc-light: #faecd6; }
+    .party-blue  { --pc: #2563b0; } .party-blue .bar  { background: #dce8f7; }
+    .party-red   { --pc: #b82525; } .party-red .bar   { background: #f7dcdc; }
+    .party-green { --pc: #1e8040; } .party-green .bar { background: #ddf0e2; }
+    .party-amber { --pc: #b86a10; } .party-amber .bar { background: #faecd6; }
 
     .opt-inner {
       position: relative; z-index: 2;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 14px 16px; gap: 12px;
+      padding: 13px 15px; gap: 12px;
     }
 
-    .opt-left { display: flex; align-items: center; gap: 14px; flex: 1; min-width: 0; }
+    .opt-left { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0; }
 
-    /* party color swatch */
-    .swatch {
-      width: 10px; height: 36px; border-radius: 4px;
-      background: var(--pc); flex-shrink: 0;
-    }
+    .swatch { width: 9px; height: 34px; border-radius: 4px; background: var(--pc); flex-shrink: 0; }
 
     .candidate-info { flex: 1; min-width: 0; }
-
-    .candidate-name {
-      font-family: 'Instrument Serif', serif;
-      font-size: 1rem; color: #1a1a18; line-height: 1.2;
-    }
-
-    .candidate-party {
-      font-size: .72rem; color: #847e70; margin-top: 2px;
-    }
+    .candidate-name { font-family: 'Instrument Serif', serif; font-size: .98rem; }
+    .candidate-party { font-size: .71rem; color: #847e70; margin-top: 2px; }
 
     .circle {
-      width: 18px; height: 18px; border-radius: 50%;
-      border: 1.5px solid #c9c3b7; flex-shrink: 0;
-      background: #fff;
+      width: 17px; height: 17px; border-radius: 50%;
+      border: 1.5px solid #c9c3b7; flex-shrink: 0; background: #fff;
       display: flex; align-items: center; justify-content: center;
       transition: border-color .15s, background .15s;
     }
 
     .circle::after {
-      content: ''; width: 7px; height: 7px; border-radius: 50%;
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
       background: #fff; opacity: 0; transition: opacity .15s;
     }
 
     .opt-pct {
-      font-size: .82rem; font-weight: 500;
-      color: #b0a898; opacity: 0;
-      transition: opacity .35s .3s; min-width: 36px; text-align: right;
+      font-size: .8rem; font-weight: 500; color: #b0a898; opacity: 0;
+      transition: opacity .35s .3s; min-width: 34px; text-align: right;
     }
 
     .option.selected { border-color: var(--pc); }
     .option.selected .circle { border-color: var(--pc); background: var(--pc); }
     .option.selected .circle::after { opacity: 1; }
     .option.voted .opt-pct { opacity: 1; color: var(--pc); }
+    .option.already-voted { pointer-events: none; }
 
-    /* ── vote button ── */
     .vote-btn {
-      width: 100%; margin-top: 18px; padding: 13px;
-      border: 1.5px solid #1a1a18; border-radius: 10px;
+      width: 100%; margin-top: 18px; padding: 12px;
+      border: 1.5px solid #1a1a18; border-radius: 9px;
       background: transparent; color: #1a1a18;
-      font-family: 'DM Sans', sans-serif;
-      font-size: .87rem; font-weight: 500; letter-spacing: .04em;
-      cursor: pointer;
+      font-family: 'DM Sans', sans-serif; font-size: .86rem; font-weight: 500;
+      letter-spacing: .04em; cursor: pointer;
       transition: background .15s, color .15s, opacity .15s;
     }
 
@@ -219,33 +340,68 @@
     .vote-btn.done { background: #eeeae0; color: #5a5748; border-color: #e5e2da; pointer-events: none; }
 
     .thanks {
-      display: none; text-align: center;
-      font-size: .85rem; color: #b0a898;
-      padding-top: 12px; font-style: italic;
-      font-family: 'Instrument Serif', serif;
+      display: none; text-align: center; font-size: .82rem;
+      color: #b0a898; padding-top: 12px;
+      font-style: italic; font-family: 'Instrument Serif', serif;
     }
     .thanks.show { display: block; }
 
-    /* ── disclaimer ── */
     .disclaimer {
-      margin-top: 40px;
-      border-top: 1px solid #e5e2da; padding-top: 20px;
-      font-size: .75rem; color: #b0a898; line-height: 1.7;
-      text-align: center;
+      margin-top: 36px; border-top: 1px solid #e5e2da; padding-top: 18px;
+      font-size: .73rem; color: #b0a898; line-height: 1.7; text-align: center;
     }
+
+    /* ══════════════════════════════
+       THANK YOU PAGE
+    ══════════════════════════════ */
+    .done-wrap {
+      min-height: calc(100vh - 100px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .done-card {
+      background: #fff; border: 1px solid #e5e2da;
+      border-radius: 20px; padding: 50px 44px;
+      width: 100%; max-width: 440px; text-align: center;
+    }
+
+    .check-circle {
+      width: 60px; height: 60px; border-radius: 50%;
+      background: #eaf4ee; margin: 0 auto 22px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    .done-card h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.8rem; font-weight: 400; margin-bottom: 8px;
+    }
+
+    .done-card p { font-size: .87rem; color: #847e70; margin-bottom: 28px; line-height: 1.6; }
+
+    .done-ref {
+      background: #f8f7f4; border-radius: 9px; padding: 14px 18px;
+      font-size: .78rem; color: #5a5748; margin-bottom: 28px; text-align: left;
+      line-height: 1.9;
+    }
+
+    .done-ref strong { color: #1a1a18; }
 
     footer {
-      text-align: center; padding: 24px;
+      text-align: center; padding: 22px;
       border-top: 1px solid #e5e2da;
-      font-size: .73rem; color: #b0a898;
+      font-size: .72rem; color: #b0a898;
     }
 
-    @media (max-width: 540px) {
-      header { padding: 16px 20px; }
-      main { padding: 36px 16px 60px; }
-      .poll { padding: 22px 16px; }
+    @media (max-width: 560px) {
+      header { padding: 14px 18px; }
+      .login-card { padding: 30px 22px; }
+      .profile-wrap, .ballot-wrap { padding: 30px 14px 60px; }
       .stats { flex-wrap: wrap; gap: 10px; }
       .stat { min-width: calc(50% - 5px); flex: none; }
+      .profile-grid { grid-template-columns: 1fr; }
+      .done-card { padding: 36px 22px; }
     }
   </style>
 </head>
@@ -255,269 +411,321 @@
 
 <header>
   <div class="logo">ElectVote</div>
-  <div class="live-pill"><span class="dot"></span> Voting Open</div>
+  <div class="header-right">
+    <div class="live-pill"><span class="dot"></span> Voting Open</div>
+    <div class="user-chip" id="userChip" onclick="goProfile()">
+      <div class="avatar" id="chipAvatar"></div>
+      <span id="chipName"></span>
+    </div>
+  </div>
 </header>
 
-<main>
-  <h1 class="page-title">General Election<br><em>2025 Ballot</em></h1>
-  <p class="page-sub">Cast your vote for each race below. Your selection is final once submitted.</p>
+<!-- ══ PAGE: LOGIN ══ -->
+<div class="page active" id="page-login">
+  <div class="login-wrap">
+    <div class="login-card">
+      <div class="login-icon">E</div>
+      <h2>Voter Login</h2>
+      <p>Enter your credentials to access your ballot for the 2025 General Election.</p>
 
-  <div class="election-date">
-    <span class="cal-icon">25</span>
-    Election Day &mdash; November 25, 2025 &nbsp;&bull;&nbsp; Polls close at 8:00 PM
-  </div>
+      <div class="login-error" id="loginError">Invalid Voter ID or PIN. Please try again.</div>
 
-  <!-- Stats -->
-  <div class="stats">
-    <div class="stat">
-      <div class="stat-n" id="totalVotes">0</div>
-      <div class="stat-l">Votes cast</div>
+      <div class="field">
+        <label>Voter ID</label>
+        <input type="text" id="voterIdInput" placeholder="e.g. VOTER1" autocomplete="off"/>
+        <div class="hint">Use VOTER1 or VOTER2</div>
+      </div>
+
+      <div class="field">
+        <label>PIN</label>
+        <input type="password" id="voterPinInput" placeholder="4-digit PIN"/>
+        <div class="hint">Use 1234 for Voter 1 &bull; 5678 for Voter 2</div>
+      </div>
+
+      <button class="login-btn" onclick="doLogin()">Sign in &amp; View Ballot &rarr;</button>
+
+      <div class="demo-hint">
+        <strong>Demo accounts:</strong><br>
+        Voter 1 &mdash; ID: <strong>VOTER1</strong> &nbsp;PIN: <strong>1234</strong><br>
+        Voter 2 &mdash; ID: <strong>VOTER2</strong> &nbsp;PIN: <strong>5678</strong>
+      </div>
     </div>
-    <div class="stat">
-      <div class="stat-n">3</div>
-      <div class="stat-l">Races</div>
+  </div>
+</div>
+
+<!-- ══ PAGE: PROFILE ══ -->
+<div class="page" id="page-profile">
+  <div class="profile-wrap">
+    <div class="profile-header">
+      <div class="profile-avatar" id="profileAvatar"></div>
+      <div class="profile-info">
+        <div class="profile-name" id="profileName"></div>
+        <div class="profile-meta" id="profileMeta"></div>
+      </div>
+      <div class="profile-badge">&#10003; Verified Voter</div>
     </div>
-    <div class="stat">
-      <div class="stat-n" id="participants">0</div>
-      <div class="stat-l">Voters</div>
+
+    <div class="profile-grid">
+      <div class="pcard">
+        <div class="pcard-label">Voter ID</div>
+        <div class="pcard-val" id="profileId" style="font-size:1.1rem; margin-top:4px;"></div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-label">District</div>
+        <div class="pcard-val" id="profileDistrict" style="font-size:1.1rem; margin-top:4px;"></div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-label">Races Voted</div>
+        <div class="pcard-val" id="profileVoted">0 / 3</div>
+        <div class="pcard-sub" id="profileVotedSub">No votes cast yet</div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-label">Ballot Status</div>
+        <div class="pcard-val" id="profileStatus" style="font-size:1rem; margin-top:4px; color:#b86a10;">Pending</div>
+      </div>
     </div>
-    <div class="stat">
-      <div class="stat-n" id="completed">0/3</div>
-      <div class="stat-l">Completed</div>
+
+    <div class="profile-actions">
+      <button class="btn-primary" onclick="goBallot()">Go to Ballot &rarr;</button>
+      <button class="btn-outline" onclick="doLogout()">Log out</button>
     </div>
   </div>
+</div>
 
-  <!-- Race 1: President -->
-  <div class="section-head">
-    <span class="section-title">Race 1 of 3</span>
-    <span class="vote-count-label" id="r1-total">0 votes</span>
-  </div>
+<!-- ══ PAGE: BALLOT ══ -->
+<div class="page" id="page-ballot">
+  <div class="ballot-wrap">
+    <h1 class="page-title">General Election<br><em>2025 Ballot</em></h1>
+    <p class="page-sub">Cast your vote for each race. Your selection is final once submitted.</p>
+    <div class="election-date">&#128197; Election Day &mdash; November 25, 2025 &nbsp;&bull;&nbsp; Polls close 8:00 PM</div>
 
-  <div class="poll">
-    <span class="poll-tag">Presidential Race</span>
-    <div class="poll-q">Who do you cast your vote for as President of the Republic?</div>
-    <div class="options">
-
-      <label class="option party-blue" id="r1-a">
-        <input type="radio" name="race1" value="a"/>
-        <div class="bar" id="br1-a"></div>
-        <div class="opt-inner">
-          <div class="opt-left">
-            <div class="swatch"></div>
-            <div class="candidate-info">
-              <div class="candidate-name">James Hartwell</div>
-              <div class="candidate-party">National Democratic Party</div>
-            </div>
-            <div class="circle"></div>
-          </div>
-          <span class="opt-pct" id="pct1-a">0%</span>
-        </div>
-      </label>
-
-      <label class="option party-red" id="r1-b">
-        <input type="radio" name="race1" value="b"/>
-        <div class="bar" id="br1-b"></div>
-        <div class="opt-inner">
-          <div class="opt-left">
-            <div class="swatch"></div>
-            <div class="candidate-info">
-              <div class="candidate-name">Margaret Cole</div>
-              <div class="candidate-party">Conservative Alliance</div>
-            </div>
-            <div class="circle"></div>
-          </div>
-          <span class="opt-pct" id="pct1-b">0%</span>
-        </div>
-      </label>
-
-      <label class="option party-green" id="r1-c">
-        <input type="radio" name="race1" value="c"/>
-        <div class="bar" id="br1-c"></div>
-        <div class="opt-inner">
-          <div class="opt-left">
-            <div class="swatch"></div>
-            <div class="candidate-info">
-              <div class="candidate-name">Priya Sundaram</div>
-              <div class="candidate-party">Green People's Party</div>
-            </div>
-            <div class="circle"></div>
-          </div>
-          <span class="opt-pct" id="pct1-c">0%</span>
-        </div>
-      </label>
-
-      <label class="option party-amber" id="r1-d">
-        <input type="radio" name="race1" value="d"/>
-        <div class="bar" id="br1-d"></div>
-        <div class="opt-inner">
-          <div class="opt-left">
-            <div class="swatch"></div>
-            <div class="candidate-info">
-              <div class="candidate-name">David Okonkwo</div>
-              <div class="candidate-party">United Liberty Front</div>
-            </div>
-            <div class="circle"></div>
-          </div>
-          <span class="opt-pct" id="pct1-d">0%</span>
-        </div>
-      </label>
-
+    <div class="stats">
+      <div class="stat"><div class="stat-n" id="totalVotes">0</div><div class="stat-l">Total votes</div></div>
+      <div class="stat"><div class="stat-n">3</div><div class="stat-l">Races</div></div>
+      <div class="stat"><div class="stat-n" id="completedStat">0/3</div><div class="stat-l">Completed</div></div>
     </div>
-    <button class="vote-btn" id="btn1" onclick="castVote('race1','1')" disabled>Select a candidate to vote</button>
-    <div class="thanks" id="ty1">Your presidential vote has been recorded.</div>
-  </div>
 
-  <!-- Race 2: Senate -->
-  <div class="section-head">
-    <span class="section-title">Race 2 of 3</span>
-    <span class="vote-count-label" id="r2-total">0 votes</span>
-  </div>
-
-  <div class="poll">
-    <span class="poll-tag">Senate Seat &mdash; District 4</span>
-    <div class="poll-q">Who do you choose to represent District 4 in the Senate?</div>
-    <div class="options">
-
-      <label class="option party-red" id="r2-a">
-        <input type="radio" name="race2" value="a"/>
-        <div class="bar" id="br2-a"></div>
-        <div class="opt-inner">
-          <div class="opt-left">
-            <div class="swatch"></div>
-            <div class="candidate-info">
-              <div class="candidate-name">Sandra Whitmore</div>
-              <div class="candidate-party">Conservative Alliance</div>
-            </div>
-            <div class="circle"></div>
-          </div>
-          <span class="opt-pct" id="pct2-a">0%</span>
-        </div>
-      </label>
-
-      <label class="option party-blue" id="r2-b">
-        <input type="radio" name="race2" value="b"/>
-        <div class="bar" id="br2-b"></div>
-        <div class="opt-inner">
-          <div class="opt-left">
-            <div class="swatch"></div>
-            <div class="candidate-info">
-              <div class="candidate-name">Carlos Rivera</div>
-              <div class="candidate-party">National Democratic Party</div>
-            </div>
-            <div class="circle"></div>
-          </div>
-          <span class="opt-pct" id="pct2-b">0%</span>
-        </div>
-      </label>
-
-      <label class="option party-amber" id="r2-c">
-        <input type="radio" name="race2" value="c"/>
-        <div class="bar" id="br2-c"></div>
-        <div class="opt-inner">
-          <div class="opt-left">
-            <div class="swatch"></div>
-            <div class="candidate-info">
-              <div class="candidate-name">Fatima Al-Hassan</div>
-              <div class="candidate-party">United Liberty Front</div>
-            </div>
-            <div class="circle"></div>
-          </div>
-          <span class="opt-pct" id="pct2-c">0%</span>
-        </div>
-      </label>
-
+    <!-- Race 1 -->
+    <div class="section-head">
+      <span class="section-title">Race 1 of 3</span>
+      <span class="vote-count-label" id="r1-total">0 votes</span>
     </div>
-    <button class="vote-btn" id="btn2" onclick="castVote('race2','2')" disabled>Select a candidate to vote</button>
-    <div class="thanks" id="ty2">Your senate vote has been recorded.</div>
-  </div>
-
-  <!-- Race 3: Referendum -->
-  <div class="section-head">
-    <span class="section-title">Race 3 of 3</span>
-    <span class="vote-count-label" id="r3-total">0 votes</span>
-  </div>
-
-  <div class="poll">
-    <span class="poll-tag">Referendum &mdash; Measure A</span>
-    <div class="poll-q">Do you support Measure A: Expanding renewable energy infrastructure with a 2% levy on fossil fuel corporations?</div>
-    <div class="options">
-
-      <label class="option party-green" id="r3-a">
-        <input type="radio" name="race3" value="a"/>
-        <div class="bar" id="br3-a"></div>
-        <div class="opt-inner">
-          <div class="opt-left">
-            <div class="swatch"></div>
-            <div class="candidate-info">
-              <div class="candidate-name">Yes — I support Measure A</div>
-              <div class="candidate-party">In favour of the proposal</div>
-            </div>
-            <div class="circle"></div>
-          </div>
-          <span class="opt-pct" id="pct3-a">0%</span>
-        </div>
-      </label>
-
-      <label class="option party-red" id="r3-b">
-        <input type="radio" name="race3" value="b"/>
-        <div class="bar" id="br3-b"></div>
-        <div class="opt-inner">
-          <div class="opt-left">
-            <div class="swatch"></div>
-            <div class="candidate-info">
-              <div class="candidate-name">No — I oppose Measure A</div>
-              <div class="candidate-party">Against the proposal</div>
-            </div>
-            <div class="circle"></div>
-          </div>
-          <span class="opt-pct" id="pct3-b">0%</span>
-        </div>
-      </label>
-
-      <label class="option party-amber" id="r3-c">
-        <input type="radio" name="race3" value="c"/>
-        <div class="bar" id="br3-c"></div>
-        <div class="opt-inner">
-          <div class="opt-left">
-            <div class="swatch"></div>
-            <div class="candidate-info">
-              <div class="candidate-name">Abstain</div>
-              <div class="candidate-party">No preference recorded</div>
-            </div>
-            <div class="circle"></div>
-          </div>
-          <span class="opt-pct" id="pct3-c">0%</span>
-        </div>
-      </label>
-
+    <div class="poll">
+      <span class="poll-tag">Presidential Race</span>
+      <div class="poll-q">Who do you cast your vote for as President?</div>
+      <div class="options">
+        <label class="option party-blue" id="r1-a"><input type="radio" name="race1" value="a"/>
+          <div class="bar" id="br1-a"></div>
+          <div class="opt-inner"><div class="opt-left"><div class="swatch"></div><div class="candidate-info"><div class="candidate-name">Nominee 1</div><div class="candidate-party">Party A</div></div><div class="circle"></div></div><span class="opt-pct" id="pct1-a">0%</span></div>
+        </label>
+        <label class="option party-red" id="r1-b"><input type="radio" name="race1" value="b"/>
+          <div class="bar" id="br1-b"></div>
+          <div class="opt-inner"><div class="opt-left"><div class="swatch"></div><div class="candidate-info"><div class="candidate-name">Nominee 2</div><div class="candidate-party">Party B</div></div><div class="circle"></div></div><span class="opt-pct" id="pct1-b">0%</span></div>
+        </label>
+      </div>
+      <button class="vote-btn" id="btn1" onclick="castVote('race1','1')" disabled>Select a candidate to vote</button>
+      <div class="thanks" id="ty1">Your presidential vote has been recorded.</div>
     </div>
-    <button class="vote-btn" id="btn3" onclick="castVote('race3','3')" disabled>Select your position to vote</button>
-    <div class="thanks" id="ty3">Your referendum vote has been recorded.</div>
-  </div>
 
-  <div class="disclaimer">
-    This is a demonstration ballot only. No real votes are collected or stored.<br>
-    All candidate names, parties, and measures are entirely fictional.
+    <!-- Race 2 -->
+    <div class="section-head">
+      <span class="section-title">Race 2 of 3</span>
+      <span class="vote-count-label" id="r2-total">0 votes</span>
+    </div>
+    <div class="poll">
+      <span class="poll-tag">Senate Seat</span>
+      <div class="poll-q">Who do you choose to represent the Senate?</div>
+      <div class="options">
+        <label class="option party-green" id="r2-a"><input type="radio" name="race2" value="a"/>
+          <div class="bar" id="br2-a"></div>
+          <div class="opt-inner"><div class="opt-left"><div class="swatch"></div><div class="candidate-info"><div class="candidate-name">Nominee 1</div><div class="candidate-party">Party A</div></div><div class="circle"></div></div><span class="opt-pct" id="pct2-a">0%</span></div>
+        </label>
+        <label class="option party-amber" id="r2-b"><input type="radio" name="race2" value="b"/>
+          <div class="bar" id="br2-b"></div>
+          <div class="opt-inner"><div class="opt-left"><div class="swatch"></div><div class="candidate-info"><div class="candidate-name">Nominee 2</div><div class="candidate-party">Party B</div></div><div class="circle"></div></div><span class="opt-pct" id="pct2-b">0%</span></div>
+        </label>
+      </div>
+      <button class="vote-btn" id="btn2" onclick="castVote('race2','2')" disabled>Select a candidate to vote</button>
+      <div class="thanks" id="ty2">Your senate vote has been recorded.</div>
+    </div>
+
+    <!-- Race 3 -->
+    <div class="section-head">
+      <span class="section-title">Race 3 of 3</span>
+      <span class="vote-count-label" id="r3-total">0 votes</span>
+    </div>
+    <div class="poll">
+      <span class="poll-tag">Referendum — Measure A</span>
+      <div class="poll-q">Do you support Measure A on renewable energy expansion?</div>
+      <div class="options">
+        <label class="option party-green" id="r3-a"><input type="radio" name="race3" value="a"/>
+          <div class="bar" id="br3-a"></div>
+          <div class="opt-inner"><div class="opt-left"><div class="swatch"></div><div class="candidate-info"><div class="candidate-name">Yes — Support</div><div class="candidate-party">In favour</div></div><div class="circle"></div></div><span class="opt-pct" id="pct3-a">0%</span></div>
+        </label>
+        <label class="option party-red" id="r3-b"><input type="radio" name="race3" value="b"/>
+          <div class="bar" id="br3-b"></div>
+          <div class="opt-inner"><div class="opt-left"><div class="swatch"></div><div class="candidate-info"><div class="candidate-name">No — Oppose</div><div class="candidate-party">Against</div></div><div class="circle"></div></div><span class="opt-pct" id="pct3-b">0%</span></div>
+        </label>
+      </div>
+      <button class="vote-btn" id="btn3" onclick="castVote('race3','3')" disabled>Select your position to vote</button>
+      <div class="thanks" id="ty3">Your referendum vote has been recorded.</div>
+    </div>
+
+    <div class="disclaimer">
+      This is a demonstration ballot. No real votes are collected or stored.<br>
+      All names and parties are fictional placeholders.
+    </div>
   </div>
-</main>
+</div>
+
+<!-- ══ PAGE: DONE ══ -->
+<div class="page" id="page-done">
+  <div class="done-wrap">
+    <div class="done-card">
+      <div class="check-circle">&#10003;</div>
+      <h2>Ballot Complete</h2>
+      <p>All three races have been voted on. Your ballot has been submitted for the 2025 General Election.</p>
+      <div class="done-ref" id="doneRef"></div>
+      <button class="btn-primary" onclick="doLogout()">Sign out</button>
+    </div>
+  </div>
+</div>
 
 <footer>ElectVote &mdash; Secure Digital Balloting &copy; 2025</footer>
 
 <script>
-  const races = {
-    race1: { a:0, b:0, c:0, d:0, voted:false, sel:null, opts:['a','b','c','d'] },
-    race2: { a:0, b:0, c:0, voted:false, sel:null, opts:['a','b','c'] },
-    race3: { a:0, b:0, c:0, voted:false, sel:null, opts:['a','b','c'] }
+  /* ── voter accounts ── */
+  const VOTERS = {
+    VOTER1: { pin: '1234', name: 'Voter 1', initials: 'V1', district: 'District 4', dob: '01 Jan 1985', id: 'VOTER1' },
+    VOTER2: { pin: '5678', name: 'Voter 2', initials: 'V2', district: 'District 7', dob: '14 Mar 1990', id: 'VOTER2' }
   };
 
-  let pCount = 0, completedCount = 0;
+  /* ── shared poll state (persists across logins) ── */
+  const polls = {
+    race1: { a:0, b:0, opts:['a','b'] },
+    race2: { a:0, b:0, opts:['a','b'] },
+    race3: { a:0, b:0, opts:['a','b'] }
+  };
 
+  /* ── per-voter vote records ── */
+  const voterRecord = { VOTER1: {}, VOTER2: {} };
+
+  let currentUser = null;
+
+  /* ═══ NAVIGATION ═══ */
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+  }
+
+  function goProfile() { if (currentUser) showPage('profile'); }
+  function goBallot()  { showPage('ballot'); renderBallotForUser(); }
+
+  /* ═══ LOGIN ═══ */
+  function doLogin() {
+    const id  = document.getElementById('voterIdInput').value.trim().toUpperCase();
+    const pin = document.getElementById('voterPinInput').value.trim();
+    const err = document.getElementById('loginError');
+
+    if (!VOTERS[id] || VOTERS[id].pin !== pin) {
+      err.classList.add('show'); return;
+    }
+    err.classList.remove('show');
+    currentUser = id;
+
+    // header chip
+    const v = VOTERS[id];
+    document.getElementById('chipAvatar').textContent = v.initials;
+    document.getElementById('chipName').textContent    = v.name;
+    document.getElementById('userChip').classList.add('show');
+
+    showPage('profile');
+    renderProfile();
+  }
+
+  /* ═══ LOGOUT ═══ */
+  function doLogout() {
+    currentUser = null;
+    document.getElementById('userChip').classList.remove('show');
+    document.getElementById('voterIdInput').value  = '';
+    document.getElementById('voterPinInput').value = '';
+    showPage('login');
+  }
+
+  /* ═══ PROFILE ═══ */
+  function renderProfile() {
+    const v   = VOTERS[currentUser];
+    const rec = voterRecord[currentUser];
+    const cnt = Object.keys(rec).length;
+
+    document.getElementById('profileAvatar').textContent = v.initials;
+    document.getElementById('profileName').textContent   = v.name;
+    document.getElementById('profileMeta').innerHTML     =
+      'Date of Birth: ' + v.dob + '<br>Voter ID: ' + v.id + ' &nbsp;&bull;&nbsp; ' + v.district;
+    document.getElementById('profileId').textContent       = v.id;
+    document.getElementById('profileDistrict').textContent = v.district;
+    document.getElementById('profileVoted').textContent    = cnt + ' / 3';
+    document.getElementById('profileVotedSub').textContent =
+      cnt === 0 ? 'No votes cast yet' : cnt === 3 ? 'All races completed' : cnt + ' race' + (cnt>1?'s':'') + ' completed';
+    document.getElementById('profileStatus').textContent =
+      cnt === 3 ? 'Submitted' : cnt > 0 ? 'In Progress' : 'Pending';
+    document.getElementById('profileStatus').style.color =
+      cnt === 3 ? '#1e8040' : cnt > 0 ? '#b86a10' : '#b84040';
+  }
+
+  /* ═══ BALLOT RENDER ═══ */
+  function renderBallotForUser() {
+    const rec = voterRecord[currentUser];
+    let completedCount = Object.keys(rec).length;
+
+    ['race1','race2','race3'].forEach((rid, i) => {
+      const n = String(i+1);
+      const p = polls[rid];
+      const total = p.opts.reduce((t,k) => t + p[k], 0);
+
+      p.opts.forEach(k => {
+        const pct = total ? Math.round((p[k]/total)*100) : 0;
+        document.getElementById('pct'+n+'-'+k).textContent = pct + '%';
+        document.getElementById('br'+n+'-'+k).style.width  = pct + '%';
+      });
+
+      document.getElementById('r'+n+'-total').textContent = total + ' vote' + (total!==1?'s':'');
+
+      if (rec[rid]) {
+        // this voter already voted this race
+        p.opts.forEach(k => {
+          document.getElementById('r'+n+'-'+k).classList.add('voted','already-voted');
+        });
+        document.getElementById('r'+n+'-'+rec[rid]).classList.add('selected');
+        const btn = document.getElementById('btn'+n);
+        btn.classList.add('done'); btn.textContent = '\u2713 Voted';
+        document.getElementById('ty'+n).classList.add('show');
+      } else {
+        // reset for fresh vote
+        p.opts.forEach(k => {
+          const opt = document.getElementById('r'+n+'-'+k);
+          opt.classList.remove('voted','already-voted','selected');
+          opt.style.pointerEvents = '';
+          const radio = opt.querySelector('input');
+          radio.checked = false;
+        });
+        const btn = document.getElementById('btn'+n);
+        btn.classList.remove('done'); btn.disabled = true;
+        btn.textContent = 'Select a candidate to vote';
+        document.getElementById('ty'+n).classList.remove('show');
+      }
+    });
+
+    document.getElementById('completedStat').textContent = completedCount + '/3';
+    refreshTotalVotes();
+  }
+
+  /* ═══ RADIO CHANGE ═══ */
   document.querySelectorAll('input[type="radio"]').forEach(r => {
     r.addEventListener('change', function() {
       const rid = this.name, val = this.value;
-      const n = rid.replace('race','');
-      races[rid].sel = val;
-      races[rid].opts.forEach(k => document.getElementById('r'+n+'-'+k).classList.remove('selected'));
+      const n   = rid.replace('race','');
+      polls[rid].opts.forEach(k => document.getElementById('r'+n+'-'+k).classList.remove('selected'));
       document.getElementById('r'+n+'-'+val).classList.add('selected');
       const btn = document.getElementById('btn'+n);
       btn.disabled = false;
@@ -525,35 +733,60 @@
     });
   });
 
+  /* ═══ CAST VOTE ═══ */
   function castVote(rid, n) {
-    const s = races[rid];
-    if (!s.sel || s.voted) return;
-    s[s.sel]++; s.voted = true;
-    completedCount++;
+    const rec = voterRecord[currentUser];
+    if (rec[rid]) return;
 
-    const total = s.opts.reduce((t,k) => t + s[k], 0);
-    s.opts.forEach(k => {
-      const pct = Math.round((s[k] / total) * 100);
+    const sel = document.querySelector('input[name="'+rid+'"]:checked');
+    if (!sel) return;
+
+    const val = sel.value;
+    rec[rid] = val;
+    polls[rid][val]++;
+
+    const p = polls[rid];
+    const total = p.opts.reduce((t,k) => t + p[k], 0);
+
+    p.opts.forEach(k => {
+      const pct = Math.round((p[k]/total)*100);
       document.getElementById('pct'+n+'-'+k).textContent = pct + '%';
-      document.getElementById('br'+n+'-'+k).style.width = pct + '%';
+      document.getElementById('br'+n+'-'+k).style.width  = pct + '%';
       const opt = document.getElementById('r'+n+'-'+k);
-      opt.classList.add('voted');
+      opt.classList.add('voted','already-voted');
       opt.style.pointerEvents = 'none';
     });
 
-    document.getElementById('r'+n+'-total').textContent = total + ' vote' + (total !== 1 ? 's' : '');
+    document.getElementById('r'+n+'-total').textContent = total + ' vote' + (total!==1?'s':'');
     const btn = document.getElementById('btn'+n);
-    btn.classList.add('done'); btn.textContent = '\u2713 Vote submitted';
+    btn.classList.add('done'); btn.textContent = '\u2713 Voted';
     document.getElementById('ty'+n).classList.add('show');
 
-    // first time voter
-    if (completedCount === 1) pCount++;
-    document.getElementById('participants').textContent = pCount;
+    const cnt = Object.keys(rec).length;
+    document.getElementById('completedStat').textContent = cnt + '/3';
+    refreshTotalVotes();
 
-    const allVotes = Object.values(races).reduce((t,r) => t + r.opts.reduce((s,k) => s+r[k], 0), 0);
-    document.getElementById('totalVotes').textContent = allVotes;
-    document.getElementById('completed').textContent = completedCount + '/3';
+    if (cnt === 3) {
+      setTimeout(() => {
+        const v = VOTERS[currentUser];
+        document.getElementById('doneRef').innerHTML =
+          '<strong>Voter:</strong> ' + v.name + '<br>' +
+          '<strong>ID:</strong> ' + v.id + '<br>' +
+          '<strong>Races voted:</strong> 3 of 3<br>' +
+          '<strong>Ref no.:</strong> EV-2025-' + Math.floor(Math.random()*90000+10000);
+        showPage('done');
+      }, 900);
+    }
   }
+
+  function refreshTotalVotes() {
+    const t = Object.values(polls).reduce((s,p) => s + p.opts.reduce((x,k)=>x+p[k],0), 0);
+    document.getElementById('totalVotes').textContent = t;
+  }
+
+  /* allow enter key on login */
+  document.getElementById('voterPinInput').addEventListener('keydown', e => { if (e.key==='Enter') doLogin(); });
+  document.getElementById('voterIdInput').addEventListener('keydown',  e => { if (e.key==='Enter') doLogin(); });
 </script>
 </body>
 </html>
